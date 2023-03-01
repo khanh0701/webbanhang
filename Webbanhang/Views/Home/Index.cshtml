@@ -126,29 +126,14 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                         <div class="product-item">
                             <div class="image">
-                                <img src="@item.Hinh " alt="">
+
+                                <img src="~/@item.Hinh" />
+                               
                                 <div class="tag new">New</div>
-                                <ul class="cart-wrap">
-                                    <li>
-                                        <a href="cart.html" data-bs-toggle="tooltip" data-bs-html="true"
-                                           title="Add To Cart"><i class="fi flaticon-add-to-cart"></i></a>
-                                    </li>
-                                    <li data-bs-toggle="modal" data-bs-target="#popup-quickview">
-                                        <button data-bs-toggle="tooltip" data-bs-html="true" title="Quick View">
-                                            <i class="fi flaticon-eye"></i>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-html="true"
-                                           title="Wish List">
-                                            <i class="fi flaticon-heart"
-                                               aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+
                             </div>
                             <div class="text">
-                                <h2><a href="product-single.html">@item.TenSP</a></h2>
+                                <h2><a href="@Url.Action("Details", "SanPham" , new {id = item.MaSP})">@item.TenSP</a></h2>
                                 <div class="rating-product">
                                     <i class="fi flaticon-star"></i>
                                     <i class="fi flaticon-star"></i>
@@ -272,67 +257,4 @@
     </div>
 </section>
 <!-- end of themart-cta-section -->
-<!-- popup-quickview  -->
-<div id="popup-quickview" class="modal fade" tabindex="-1">
-    <div class="modal-dialog quickview-dialog">
-        <div class="modal-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <i class="ti-close"></i>
-            </button>
-            @foreach (var item in Model.ListSanPham.Take(1))
-            {
-                <div class="modal-body d-flex">
-                    <div class="product-details">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5">
-                                <div class="product-single-img">
-                                    <div class="modal-product">
-                                        <div class="item">
-                                            <img src="@item.Hinh" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="product-single-content">
-                                    <h5> @item.TenSP</h5>
-                                    <h6>$@item.GiaBan</h6>
-                                    <ul class="rating">
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <p>
-                                      @item.MoTa2
-                                    </p>
-                                    <div class="pro-single-btn">
-                                        <div class="quantity cart-plus-minus">
-                                            <input type="text" value="1">
-                                            <div class="dec qtybutton">-</div>
-                                            <div class="inc qtybutton"></div>
-                                        </div>
-                                        <a href="#" class="theme-btn">Mua Ngay</a>
-                                    </div>
-                                    <div class="social-share">
-                                        <span>Share with : </span>
-                                        <ul class="socialLinks">
-                                            <li><a href='#'><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href='#'><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href='#'><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href='#'><i class="fa fa-instagram"></i></a></li>
-                                            <li><a href='#'><i class="fa fa-youtube-play"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                }
-            </div>
-            
-    </div>
-    <!-- popup-quickview -->
-</div>
+

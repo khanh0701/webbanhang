@@ -87,7 +87,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="index.html">
+                                <a class="navbar-brand" href="~/Home/Index">
                                     <img src="~/Content/assets/images/logo.svg"
                                          alt="logo">
                                 </a>
@@ -178,14 +178,51 @@
                                 <div id="navbar" class="collapse navbar-collapse navigation-holder">
                                     <button class="menu-close"><i class="ti-close"></i></button>
                                     <ul class="nav navbar-nav mb-2 mb-lg-0">
-                                        <li><a href="about.html">Trang Chủ</a></li>
-                                        <li class="menu-item-has-children">
+                                        <li><a href="~/Home/Index">Trang Chủ</a></li>
+                                        @*<li class="menu-item-has-children">
                                             <a class="menu-down-arrow" href="#">Thể loại</a>
                                             <ul class="sub-menu">
-                                                <li><a href="shop.html">áo</a></li>
-                                                <li><a href="product-single.html">Quần</a></li>
-                                                <li><a href="wishlist.html">Giày</a></li>
-                                                <li><a href="cart.html">Dép</a></li>
+                                                <li><a href="~/LoaiSanPham/PhanLoaiSanPham/1l">Áo</a></li>
+                                                <li><a href="~/LoaiSanPham/PhanLoaiSanPham/2">Quần</a></li>
+                                                <li><a href="~/LoaiSanPham/PhanLoaiSanPham/3">Giày</a></li>
+                                                <li><a href="~/LoaiSanPham/PhanLoaiSanPham/4">Dép</a></li>
+                                            </ul>
+                                        </li>*@
+                                        <li class="menu-item-has-children">
+                                            <a class="menu-down-arrow" href="#">Thể Loại</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item-has-children">
+                                                    <a href="#">Áo</a>
+                                                    <ul class="sub-menu">
+                                                        <li>
+                                                            <a href="~/LoaiSanPham/PhanLoaiSanPham/1">Áo Khoác</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="~/LoaiSanPham/PhanLoaiSanPham/2">Áo Thun</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="~/LoaiSanPham/PhanLoaiSanPham/3">Áo Sơ Mi</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#">Quần</a>
+                                                    <ul class="sub-menu">
+                                                        <li>
+                                                            <a href="~/LoaiSanPham/PhanLoaiSanPham/4">Quần Short</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="~/LoaiSanPham/PhanLoaiSanPham/5">Quần Tây</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="~/LoaiSanPham/PhanLoaiSanPham/6">Quần KaKi</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li><a href="blog-left-sidebar.html">Giày</a></li>
+                                                <li><a href="blog-fullwidth.html">Balo</a></li>
+
                                             </ul>
                                         </li>
                                         <li><a href="about.html">About</a></li>
