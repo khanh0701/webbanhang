@@ -1,0 +1,123 @@
+﻿@model Webbanhang.Context.TaiKhoan
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("DangNhap", "Home", FormMethod.Post))
+{
+    <!-- start page-wrapper -->
+    <div class="page-wrapper ">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="vertical-centered-box">
+                <div class="content">
+                    <div class="loader-circle"></div>
+                    <div class="loader-line-mask">
+                        <div class="loader-line"></div>
+                    </div>
+                    <img src="~/Content/assets/images/preloader.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <div class="wpo-login-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form class="wpo-accountWrapper" action="#">
+                            @*<div class="wpo-accountInfo" >
+                                <div class="wpo-accountInfoHeader">
+                                    <a href="~/Home/Index"><img src="~/Content/assets/images/logo-2.svg" alt=""></a>
+                                    <a class="wpo-accountBtn" href="~/Home/DangKy">
+                                        <span class="">Đăng Ký</span>
+                                    </a>
+                                </div>
+                                <div class="image">
+                                    <img src="~/Content/assets/images/login.svg" alt="">
+                                </div>
+                                <div class="back-home">
+                                    <a class="wpo-accountBtn" href="~/Home/Index">
+                                        <span class="">về trang chủ</span>
+                                    </a>
+                                </div>
+                            </div>*@
+
+                            <div class="wpo-accountForm form-style" style="display:flex; justify-content:center;margin:auto;"  >
+                                <div class="fromTitle">
+                                    <h2>Đăng nhập</h2>
+                                    <p style="font-size:16px;color:red;">@ViewBag.ThongBao</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <label>Email</label>
+                                        <input name="Email" class="form-control" placeholder="Email" type="text" @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @autofocus = "autoforcus" })
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label>Mật Khẩu</label>
+                                            <input name="MatKhau" class="form-control" placeholder="Mật khẩu" type="password" @Html.TextBoxFor(model => model.MatKhau, new { @class = "form-control", @autofocus = "autoforcus" })
+
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default reveal6" type="button">
+                                                    <i class="ti-eye"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <div class="check-box-wrap">
+                                            <div class="input-box">
+                                                <input type="checkbox" id="fruit4" name="fruit-4" value="Strawberry">
+                                                <label for="fruit4"> Nhớ mất khẩu</label>
+                                            </div>
+                                            <div class="forget-btn">
+                                                <a href="forgot.html">Quên mật khẩu ?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <button type="submit" class="wpo-accountBtn">Đăng Nhập</button>
+                                    </div>
+                                </div>
+                                <h4 class="or"><span>OR</span></h4>
+                                <ul class="wpo-socialLoginBtn">
+                                    <li>
+                                        <button class="facebook" tabindex="0" type="button">
+                                            <span>
+                                                <i class="ti-facebook"></i>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="twitter" tabindex="0" type="button">
+                                            <span>
+                                                <i class="ti-twitter"></i>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="linkedin" tabindex="0" type="button">
+                                            <span>
+                                                <i class="ti-linkedin"></i>
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+                                <p class="subText">
+                                    Chưa có tài khoản? <a href="@Url.Action("DangKy", "Home")">
+                                        Đăng ký
+                                    </a>
+                                </p>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- end of page-wrapper -->
+}

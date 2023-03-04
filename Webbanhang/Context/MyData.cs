@@ -8,7 +8,7 @@ namespace Webbanhang.Context
     public partial class MyData : DbContext
     {
         public MyData()
-            : base("name=MyData")
+            : base("name=MyData2")
         {
         }
 

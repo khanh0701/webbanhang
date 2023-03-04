@@ -1,0 +1,117 @@
+﻿@model Webbanhang.Context.TaiKhoan
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("DangKy", "Home"))
+
+{
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="vertical-centered-box">
+                <div class="content">
+                    <div class="loader-circle"></div>
+                    <div class="loader-line-mask">
+                        <div class="loader-line"></div>
+                    </div>
+                    <img src="~/Content/assets/images/preloader.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <div class="wpo-login-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form class="wpo-accountWrapper" action="#">
+                            @*<div class="wpo-accountInfo">
+                                <div class="wpo-accountInfoHeader">
+                                    <a href="index.html"><img src="~/Content/assets/images/logo-2.svg" alt=""></a>
+                                    <a class="wpo-accountBtn" href="~/Home/DangNhap">
+                                        <span class="">Đăng Nhập</span>
+                                    </a>
+                                </div>
+                                <div class="image">
+                                    <img src="~/Content/assets/images/login.svg" alt="">
+                                </div>
+                                <div class="back-home">
+                                    <a class="wpo-accountBtn" href="~/Home/Index">
+                                        <span class="">Back To Home</span>
+                                    </a>
+                                </div>
+                            </div>*@
+                            <div class="wpo-accountForm form-style" style=" display:flex; justify-content:center;margin:auto;" >
+                                <div class="fromTitle">
+                                    <h2>Đăng Ký</h2>
+                                    <p style="font-size:16px;color:red;">@ViewBag.ThongBao</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <label for="name">Họ Tên</label>
+                                        <input type="text" name="HoTen" class="form-control" placeholder="" @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control", @autofocus = "autoforcus" })
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <label for="name">SĐT</label>
+                                        <input type="text" name="SDT" class="form-control" placeholder="" @Html.TextBoxFor(model => model.SDT, new { @class = "form-control", @autofocus = "autoforcus" })
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <label>Email</label>
+                                        <input type="text" name="Email" class="form-control" placeholder="" @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @autofocus = "autoforcus" })
+
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <label>Ngày tạo tk</label>
+                                        <input type="text" class="form-control" name="NgayTao" placeholder="" @Html.TextBoxFor(model => model.NgayTao, new { @class = "form-control", @autofocus = "autoforcus" })
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label>Mật Khẩu</label>
+                                            <input type="password" name="MatKhau" class="form-control" placeholder="" @Html.TextBoxFor(model => model.MatKhau, new { @class = "form-control", @autofocus = "autoforcus" })
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default reveal3" type="button"><i class="ti-eye"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label>Xác Nhận Mật Khẩu</label>
+                                            <input class="form-control"
+                                                   data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!"
+                                                   id="MatKhauXacNhan" name="MatKhauXacNhan" type="password" value="" aria-
+                                                   describedby="MatKhauXacNhan-error" aria-invalid="true">
+
+                                            @ViewData["NhapMKXN"]
+                                            @ViewData["MatKhauGiongNhau"]
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default reveal2" type="button"><i class="ti-eye"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <button type="submit" class="wpo-accountBtn">Đăng Ký</button>
+                                    </div>
+                                </div>
+                                <h4 class="or"><span>OR</span></h4>
+                                <ul class="wpo-socialLoginBtn">
+                                    <li><button class="facebook" tabindex="0" type="button"><span><i class="ti-facebook"></i></span></button></li>
+                                    <li><button class="twitter" tabindex="0" type="button"><span><i class="ti-twitter"></i></span></button></li>
+                                    <li><button class="linkedin" tabindex="0" type="button"><span><i class="ti-linkedin"></i></span></button></li>
+                                </ul>
+                                <p class="subText">Đã có tài khoản<a href="~/Home/DangNhap">Đăng Nhập</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- end of page-wrapper -->
+}
