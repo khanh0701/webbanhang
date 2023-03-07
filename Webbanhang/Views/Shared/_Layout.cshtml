@@ -92,56 +92,57 @@
                                 </a>
                             </div>
                         </div>
+                        @*<div class="col-lg-5 col-12">
+            <form action="#" class="middle-box">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "form-inline" }))
+                {
+                    <div class="search-box">
+                        <div class="input-group">
+                            <input type="text" class="form-control" value="@ViewBag.Find" placeholder="   nhập từ khóa tìm kiếm" name="name">
+                            <button class="search-btn" type="submit">
+                                <i class="fi flaticon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                }
+                </form>
+        </div>*@
                         <div class="col-lg-6 col-12">
                             <form action="#" class="middle-box">
-                                @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "form-inline" }))
-                                {
-                                    <div class="search-box">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" value="@ViewBag.Find" placeholder="   nhập từ khóa tìm kiếm" name="name">
-                                            <button class="search-btn" type="submit">
-                                                <i class="fi flaticon-search"></i>
-                                            </button>
-                                        </div>
+                                <div class="category">
+                                    <select name="service" class="form-control">
+                                        <option>Tìm Kiếm</option>
+                                    
+                                    </select>
+                                </div>
+                                <div class="search-box">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control"
+                                               placeholder="Nhập từ cần tìm kiếm">
+                                        <button class="search-btn" type="submit">
+                                            <i class="fi flaticon-search"></i>
+                                        </button>
                                     </div>
-                                }
-                                </form>
+                                </div>
+                            </form>
                         </div>
                         <div class="col-lg-4 col-12">
                             <div class="middle-right">
                                 <ul>
-                                    @*<li>
-                                        <a href="compare.html"><i class="fi flaticon-right-and-left"></i><span>Compare</span></a>
-                                    </li>*@
-                                    <li><a href="~/Home/DangNhap"><i class="fi flaticon-user-profile"></i><span>Tài Khoản</span></a></li>
-                                    <li>
-                                        <div class="header-wishlist-form-wrapper">
-                                            <button class="wishlist-toggle-btn">
-                                                <i class="fi flaticon-heart"></i>
-
-                                            </button>
-                                            <div class="mini-wislist-content">
-                                                <button class="mini-cart-close"><i class="ti-close"></i></button>
-                                                <div class="mini-cart-items">
-                                                    <div class="mini-cart-item clearfix">
-                                                        <div class="mini-cart-item-image">
-                                                            <a href="product.html"><img src="~/Content/assets/images/cart/img-1.jpg" alt></a>
-                                                        </div>
-                                                    </div>                                     
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <li><a href="~/Home/DangNhap"><i class="fi flaticon-user-profile"></i>Tài khoản</a></li>
+                                    @*<li><a href="compare.html"><i class="fi flaticon-right-and-left"></i>Đơn Hàng</a>*@
                                     <li>
                                         <div class="mini-cart">
                                             <button class="cart-toggle-btn">
-                                                <i class="fi flaticon-add-to-cart"></i>
-                                               
+
+                                                <a href="~/GioHang/GioHang"><i class="fi flaticon-add-to-cart"></i>Giỏ hàng</a>
+
                                             </button>
-                                            
+
                                         </div>
                                     </li>
+
+
                                 </ul>
                             </div>
                         </div>

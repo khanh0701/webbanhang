@@ -1392,9 +1392,10 @@ img {
 }
 
 @media (max-width: 1199px) {
-  .blog-sidebar .recent-post-widget .post h4 {
-    margin: 0;
-  }
+    .blog-sidebar .recent-post-widget .post h4 {
+        margin: 0;
+        margin-right: -184px;
+    }
 }
 
 @media (max-width: 767px) {

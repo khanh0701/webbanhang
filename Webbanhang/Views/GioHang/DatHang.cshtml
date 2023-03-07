@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Webbanhang.Models.GioHang>
+
+
+<section class="section-content padding-y">
+    <div class="container">
+
+        <div class="row">
+            <!-- start wpo-page-title -->
+            <section class="wpo-page-title">
+                <h2 class="d-none">Hide</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xs-12">
+                            <div class="wpo-breadcumb-wrap">
+                                <ol class="wpo-breadcumb-wrap">
+                                    <li><a href="~/Home/Index">Trang Chủ</a></li>
+                                    <li><a href="~/GioHang/GioHang">Giỏ hàng</a></li>
+                                    <li>Đặt Hàng</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+                </div> <!-- end container -->
+            </section>
+            <!-- end page-title -->
+            <main class="col-md-9">
+                <div class="info-customer">
+                    <article class="card mb-4">
+                        <header class="card-header">
+                            <strong class="d-inline-block mr-3"></strong>
+                            <span></span>
+                        </header>
+                        @using Webbanhang.Context
+                        @{
+                            TaiKhoan kh = (TaiKhoan)Session["TaiKhoan"];
+                        }
+                    <table align="center">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
+                            <tr style="height:40px">
+                                <td>Tên KH:</td>
+                                <td style="font-weight:bold">@kh.HoTen</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Email:</td>
+                                <td style="font-weight:bold">@kh.Email</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Địa chỉ: </td>
+                                <td style="font-weight:bold">@kh.DiaChi</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Điện thoại: </td>
+                                <td style="font-weight:bold">@kh.SDT</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Ngày đặt:</td>
+                                <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Ngày giao:</td>
+                                <td style="font-weight:bold">
+                                    <input type="date" name="NgayGiao" />
+                                </td>
+                            </tr>
+
+                            <tr style="height:40px">
+                                <td></td>
+                                <td style="font-weight:bold">
+                                    <input type="submit" value="Xác nhận" class="btn btn-success" />
+                                </td>
+                            </tr>
+                            <br />
+                        }
+                        @*@foreach (var item in Model)
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td width="65">
+                                                <img src="~/@item.Hinh" class="img-xs border">
+                                            </td>
+                                            <td>
+                                                <p class="title mb-0">@item.TenSP </p>
+                                                <var class="price text-muted">@item.GiaBan</var>
+                                            </td>
+                                            <td> Số lượng: @ViewBag.Tongsoluong </td>
+                                            <td width="250">
+                                                Tổng tiền:
+                                                @String.Format("{0:0,0}", @ViewBag.Tongtien) VNĐ
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        }*@
+                        </article>
+                </div>
+
+
+
+            </main>
+        </div>
+
+    </div>
+</section>
+

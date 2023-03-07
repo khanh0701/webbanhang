@@ -141,8 +141,8 @@
                             <div class="quantity cart-plus-minus">
                                 <input class="text-value" type="text" value="1">
                             </div>
-                            <a href="#" class="theme-btn-s2">Mua Ngay</a>
-                            <a href="#" class="wl-btn"><i class="fi flaticon-heart"></i></a>
+                            <a href="@Url.Action("ThemGioHang", "GioHang",new { @Id = Model.MaSP, @strURL = Request.Url.ToString() })" class="theme-btn-s2">thêm vào giỏ hàng</a>
+                            @*<a href="#" class="wl-btn"><i class="fi flaticon-heart"></i></a>*@
                         </div>
                         <ul class="important-text">
                             @*<li><span>thể loại:</span>@Model.LoaiSanPham</li>*@

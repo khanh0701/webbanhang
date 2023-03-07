@@ -147,6 +147,8 @@
     </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\MoMoSecurity.cs" />
+    <Compile Include="Models\PaymentRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -377,13 +379,16 @@
     <Content Include="Views\LoaiSanPham\PhanLoaiSanPham.cshtml" />
     <Content Include="Views\Home\DangNhap.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\GioHang\Giohang.cshtml" />
+    <Content Include="Views\GioHang\GiohangPartial.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\XacnhanDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\AssetsAD\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Home\" />
-    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,214 @@
+﻿@model IEnumerable<Webbanhang.Models.GioHang>
+@{
+    ViewBag.Title = "Giohang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- start wpo-page-title -->
+<section class="wpo-page-title">
+    <h2 class="d-none">Hide</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="wpo-breadcumb-wrap">
+                    <ol class="wpo-breadcumb-wrap">
+                        <li><a href="~/Home/Index">Trang chủ</a></li>
+                        <li><a href="~/LoaiSanPham/PhanLoaiSanPham/1">Sản phẩm</a></li>
+                        <li>Giỏ Hàng</li>
+                    </ol>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section>
+<!-- end page-title -->
+<!-- cart-area-s2 start -->
+
+    <div class="cart-area-s2 section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="single-page-title">
+                        <h2>Giỏ hàng của bạn</h2>
+                        @*<p>There are 4 products in this list</p>*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-wrapper">
+                <div class="row">
+                    <div class="col-lg-8 col-12">
+                        <form action="#">
+                            <div class="cart-item">
+                                <table class="table-responsive cart-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="images images-b">Sản Phẩm</th>
+                                            <th class="ptice">Giá</th>
+                                            <th class="stock">Số Lượng</th>
+                                            <th class="ptice total">Thành Tiền</th>
+                                            <th class="remove remove-b">Xóa</th>
+                                            <th class="ptice total">Cập Nhật</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr class="wishlist-item">
+                                                <td class="product-item-wish">
+                                                    <div class="check-box">
+                                                        <input type="checkbox"
+                                                               class="myproject-checkbox">
+                                                    </div>
+                                                    <div class="images">
+                                                        <span>
+                                                            <img src="~/@item.Hinh" alt="">
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="product">
+                                                        <ul>
+                                                            <li class="first-cart"><a href="@Url.Action("Details", "SanPham" , new {id = item.MaSP})">@item.TenSP</a></li>
+                                                            <li>
+                                                                <div class="rating-product">
+                                                                    <i class="fi flaticon-star"></i>
+                                                                    <i class="fi flaticon-star"></i>
+                                                                    <i class="fi flaticon-star"></i>
+                                                                    <i class="fi flaticon-star"></i>
+                                                                    <i class="fi flaticon-star"></i>
+                                                                    <span>130</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                </td>
+                                                @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @id = item.MaSP }))
+                                                {
+                                                    <td class="ptice">$ @String.Format("{0:0,0}", item.GiaBan)</td>
+                                                    <td>
+                                                        <input type="number" min="1" max="@item.SoLuongTon" name="txtSoLuong" value="@item.soluong" />
+                                                    </td>
+                                                    <td class="ptice"> @String.Format("{0:0,0 VNĐ}", item.dthanhtien)</td>
+                                                    <td class="action">
+                                                        @Html.ActionLink("Xóa", "XoaGioHang", new { id = item.MaSP })
+                                                    </td>
+
+                                                    <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
+
+                                                }
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            @*<div class="cart-action">
+
+                            <a type="submit" value="Cập nhật" class="theme-btn-s2" href="#"><i class="fi flaticon-refresh"></i>Cập nhật</a>
+                        </div>*@
+                        </form>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="cart-total-wrap">
+                            <h3>Hóa Đơn</h3>
+                            <div class="sub-total">
+                                <h4>số loại sản phẩm</h4>
+                                <span>@ViewBag.TongSoLuongSanPham</span>
+                            </div>
+                            <div class="sub-total">
+                                <h4>Số lượng sản phẩm</h4>
+                                <span>@ViewBag.TongSoLuong</span>
+                            </div>
+                            <div class="shipping-option" style="margin-bottom:20px">
+                                <span>Shipping</span>
+                                <ul>
+                                    <li class="free">
+                                        <input id="Free" type="radio" name="color" value="30" checked>
+                                        <label for="Free">Free Shipping</label>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- Shipping -->
+                            <!-- Start Calculate Shipping -->
+                            <!-- End Calculate Shipping -->
+
+                            <div class="total">
+                                <h4>Thành tiền</h4>
+                                <span>@String.Format("{0:0,0}", @ViewBag.TongTien) VND</span>
+                            </div>
+
+                            <a class="theme-btn-s2" href="~/GioHang/DatHang">Đặt Hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+
+            <div class="cart-prodact">
+                <h2>Sản phẩm có thể bạn sẽ thích</h2>
+               
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+                            <div class="product-item">
+                                <div class="image">
+                                    <img src="*~/@item.Hinh*" alt="">
+                                    <div class="tag new">New</div>
+                                    <ul class="cart-wrap">
+                                        <li>
+                                            <a href="cart.html" data-bs-toggle="tooltip" data-bs-html="true"
+                                               title="Add To Cart"><i class="fi flaticon-add-to-cart"></i></a>
+                                        </li>
+                                        <li data-bs-toggle="modal" data-bs-target="#popup-quickview">
+                                            <button data-bs-toggle="tooltip" data-bs-html="true" title="Quick View">
+                                                <i class="fi flaticon-eye"></i>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-html="true"
+                                               title="Wish List">
+                                                <i class="fi flaticon-heart"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="text">
+                                    <h2><a href="@Url.Action("Details", "SanPham", new { id = item.MaSP })">@item.TenSP</a></h2>
+                                    <div class="rating-product">
+                                        <i class="fi flaticon-star"></i>
+                                        <i class="fi flaticon-star"></i>
+                                        <i class="fi flaticon-star"></i>
+                                        <i class="fi flaticon-star"></i>
+                                        <i class="fi flaticon-star"></i>
+                                        <span>130</span>
+                                    </div>
+                                    <div class="price">
+                                        <span class="present-price">@item.GiaBan</span>
+
+                                    </div>
+                                    <div class="shop-btn">
+                                        <a class="theme-btn-s2" href="@Url.Action("Details", "SanPham", new { id = item.MaSP })">Mua Ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    }
+
+                    </div>
+                
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- cart-area end -->
