@@ -17,9 +17,9 @@ namespace WebsiteBanHangs.Controllers
         {
             HomeModel objmodel = new HomeModel();
             ViewBag.Find = name;
-            objmodel.ListLoaiSanPham = data.LoaiSanPhams.ToList();
-            objmodel.ListSanPham = data.SanPhams.ToList();
-            var all_SanPham = (from ele in data.SanPhams select ele).OrderBy(p => p.MaSP);
+            objmodel.ListLoaiSanPham = data.LoaiSanPham.ToList();
+            objmodel.ListSanPham = data.SanPham.ToList();
+            var all_SanPham = (from ele in data.SanPham select ele).OrderBy(p => p.MaSP);
             if (!String.IsNullOrEmpty(name))
             {
                 all_SanPham = (IOrderedQueryable<SanPham>)all_SanPham.Where(a => a.TenSP.Contains(name));
@@ -74,7 +74,7 @@ namespace WebsiteBanHangs.Controllers
                 }
                 else
                 {
-                    var check = data.TaiKhoans.FirstOrDefault(s => s.Email == email);
+                    var check = data.TaiKhoan.FirstOrDefault(s => s.Email == email);
                     if (check == null)
                     {
                         kh.SDT = SDT;
@@ -83,7 +83,7 @@ namespace WebsiteBanHangs.Controllers
 
                         kh.HoTen = HoTen;
                         kh.NgayTao = DateTime.Parse(NgayTao);
-                        data.TaiKhoans.Add(kh);
+                        data.TaiKhoan.Add(kh);
                         data.SaveChanges();
                         return RedirectToAction("DangNhap");
                     }
@@ -119,7 +119,7 @@ namespace WebsiteBanHangs.Controllers
         {
             var Email = collection["Email"];
             var MatKhau = collection["MatKhau"];
-            TaiKhoan kh = data.TaiKhoans.SingleOrDefault(n => n.Email == Email && n.MatKhau == MatKhau);
+            TaiKhoan kh = data.TaiKhoan.SingleOrDefault(n => n.Email == Email && n.MatKhau == MatKhau);
             if (kh != null)
             {
                 if (Email == "Admin@gmail.com")
@@ -147,8 +147,5 @@ namespace WebsiteBanHangs.Controllers
             Session.Clear();
             return RedirectToAction("Index", "Home");
         }
-
-
-
     }
 }
